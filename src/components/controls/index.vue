@@ -2,10 +2,10 @@
 	<div class="controls">
 		<div class="controls__inner">
 			<div class="controls__col">
-				<SelectQuantity :list="[6, 12, 30, 60]" :count="elementsOnPage" :changeQuantity="changeQuantity"/>
+				<SelectQuantity :list="[6, 12, 30, 60]" :count="elementsOnPage" @on-select="changeQuantity"/>
 			</div>
 			<div class="controls__col">
-				<SelectPagination :list="[3, 5, 7]" :count="elementsInPagination" :changeQuantityPagination="changeQuantityPagination"/>
+				<SelectPagination :list="[3, 5, 7]" :count="elementsInPagination" @on-select="changeQuantityPagination"/>
 			</div>
 		</div>
 	</div>

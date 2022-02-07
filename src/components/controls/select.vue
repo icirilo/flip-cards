@@ -19,21 +19,23 @@ export default {
 			show: false
 		}
 	},
-	mounted () {
-
-	},
 	methods: {
 		toggleSelect () {
-			let inst = this
 
-			document.dispatchEvent(new Event("click"))
-			inst.show = !inst.show
-			document.addEventListener('click', inst.onDocumentClick)
+			this.show = !this.show
+
+			document.addEventListener('click', this.hideSelect.bind(this), true)
+
 		},
-		onDocumentClick () {
-			this.show = false
-			document.removeEventListener('click', this.onDocumentClick)
+		hideSelect() {
+
+			this.show = false;
+			document.removeEventListener('click', this.hideSelect, true)
 		},
+		onSelect(item) {
+			this.show = false;
+			this.$emit('on-select', item);
+		}
 	}
 }
 </script>

@@ -41,6 +41,20 @@ export default {
 			elementsInPagination: 5,
 			pageIndex: 1
 		}
+	},
+	created() {
+		if (this.$route.query.pageId) {
+			if (!isNaN(this.$route.query.pageId)) {
+				if (parseInt(this.$route.query.pageId) > this.elementsQuantity / this.elementsOnPage) {
+					this.pageIndex = 1;
+				} else {
+					this.pageIndex = parseInt(this.$route.query.pageId);
+				}
+			} else {
+				this.pageIndex = 1;
+			}
+		}
+
 	}
 }
 </script>

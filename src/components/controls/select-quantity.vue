@@ -15,7 +15,7 @@
 				class="select__item"
 				v-for="(item, i) in list"
 				:key="i"
-				@click.stop="changeQuantity(item)"
+				@click.stop="onSelect(item)"
 			>
 				{{ item }}
 			</div>
@@ -35,8 +35,7 @@ export default {
 			type: Array,
 			default: () => []
 		},
-		count: Number,
-		changeQuantity: Function
+		count: Number
 	}
 }
 </script>
